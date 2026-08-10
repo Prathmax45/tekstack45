@@ -1,0 +1,83 @@
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class HotelStayTest {
+
+    @BeforeEach
+    public void setUp() {
+        // Code to run before each test
+        System.out.println("Starting test...");
+    }
+
+    @AfterEach
+    public void tearDown() {
+        // Code to run after each test
+        System.out.println("Test finished.\n");
+    }
+
+    // --- Valid Input Tests ---
+
+    @Test
+    @Order(1)
+    public void testValidStandardRoom() {
+        double expected = 300.0; // 100 * 3
+        double actual = HotelStay.calculateStayCost("Standard", 3);
+        assertEquals(expected, actual, "Cost for 3 nights in a Standard room should be 300.0");
+    }
+
+    @Test
+    @Order(2)
+    public void testValidDeluxeRoom() {
+        double expected = 400.0; // 200 * 2
+        double actual = HotelStay.calculateStayCost("Deluxe", 2);
+        assertEquals(expected, actual, "Cost for 2 nights in a Deluxe room should be 400.0");
+    }
+
+    @Test
+    @Order(3)
+    public void testValidSuiteRoom() {
+        double expected = 1600.0; // 400 * 4
+        double actual = HotelStay.calculateStayCost("Suite", 4);
+        assertEquals(expected, actual, "Cost for 4 nights in a Suite should be 1600.0");
+    }
+
+    @Test
+    @Order(4)
+    public void testCaseInsensitiveRoomType() {
+        double expected = 500.0; // 100 * 5
+        double actual = HotelStay.calculateStayCost("sTaNdArD", 5);
+        assertEquals(expected, actual, "Room type check should be case-insensitive");
+    }
+
+    // --- Invalid Input Tests ---
+
+    @Test
+    @Order(5)
+    public void testInvalidRoomType() {
+        double expected = 0.0;
+        double actual = HotelStay.calculateStayCost("Penthouse", 3);
+        assertEquals(expected, actual, "Invalid room types should return 0.0");
+    }
+
+    @Test
+    @Order(6)
+    public void testZeroNights() {
+        double expected = 0.0;
+        double actual = HotelStay.calculateStayCost("Deluxe", 0);
+        assertEquals(expected, actual, "Zero nights should return 0.0 regardless of room type");
+    }
+
+    @Test
+    @Order(7)
+    public void testNegativeNights() {
+        double expected = 0.0;
+        double actual = HotelStay.calculateStayCost("Suite", -3);
+        assertEquals(expected, actual, "Negative nights should return 0.0 regardless of room type");
+    }
+}
