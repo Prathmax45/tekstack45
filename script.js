@@ -52,6 +52,10 @@ function displayData() {
         nameCell.textContent = customer.name;
         row.appendChild(nameCell);
         
+        const emailCell = document.createElement('td');
+        emailCell.textContent = customer.email;
+        row.appendChild(emailCell);
+        
         const ageCell = document.createElement('td');
         ageCell.textContent = customer.age;
         row.appendChild(ageCell);
