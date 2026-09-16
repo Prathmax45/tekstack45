@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muscle Magic</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #fbedd8;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            background-color: #c6ebd9;
+            padding: 10px;
+            margin: 0 0 20px 0;
+            font-size: 24px;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .box {
+            background-color: #c6ebd9;
+            border: 2px solid #555;
+            border-radius: 3px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        .form-group label {
+            width: 200px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .form-group input {
+            width: 250px;
+            padding: 3px;
+            border: 1px solid #999;
+        }
+        .buttons {
+            display: flex;
+            margin-top: 20px;
+            margin-left: 100px;
+            gap: 150px;
+        }
+        button {
+            color: #8b0000;
+            font-weight: bold;
+            padding: 3px 15px;
+            cursor: pointer;
+            border: 1px solid #999;
+            background-color: #efefef;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Muscle Magic</h1>
+
+    <div class="box">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age">
+        </div>
+        <div class="form-group">
+            <label for="height">Height (in cm)</label>
+            <input type="number" id="height" name="height">
+        </div>
+        <div class="form-group">
+            <label for="weight">Weight (in kg)</label>
+            <input type="number" id="weight" name="weight">
+        </div>
+        
+        <div class="buttons">
+            <button onclick="submitData()">Submit</button>
+            <button onclick="clearForm()">Clear</button>
+        </div>
+    </div>
+
+    <div class="box">
+        <table id="customerTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Height</th>
+                    <th>Weight</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
